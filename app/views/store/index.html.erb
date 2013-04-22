@@ -1,0 +1,29 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<%if session[:user_id].present? %> <br/><br/>
+<h2> Hi <%= @user_name%> you are now logged in </h2>
+<% end %>
+<br/>
+<br/>
+<h2>Catalog</h2><br/>
+
+<% @products.each do |product| %>
+
+	<div class="item">
+		<h1><%= product.title %></h1>
+
+<h2><br/><%=sanitize product.description %></h2>
+<div class="price_line">
+<span class="price"><h2>$ <%= product.price %></h2></span>
+<%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
+					</p>
+				</div>
+
+
+
+</div>
+<% end %>
+
+

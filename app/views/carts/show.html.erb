@@ -1,0 +1,22 @@
+<br/><div class="cart_title">Your Cart</div>
+<table>
+<% for item in @cart.line_items %>
+<tr>
+<td><br/><%= item.quantity %>&times;</td>
+<td><br/><%= item.product.title %></td>
+
+</tr>
+<% end %>
+<tr class="total_line">
+<td colspan="2"><br/>Total<br/></td><br/>
+<td class="total_cell"><br/><%= number_to_currency(@cart.total_price) %><br/></td>
+</tr>
+</table>
+</table>
+<br/><br/>
+<%= button_to "Checkout" , new_order_url, :method=>:get %><br/>
+<%= button_to 'Empty cart', @cart, :method => :delete,
+:confirm => 'Are you sure?' %>
+</br>
+</br>
+<%= link_to 'Back', store_url %>

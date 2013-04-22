@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Online Store</title>
+<%= stylesheet_link_tag "scaffold" %>
+<%= stylesheet_link_tag "templatemo_style" , :media => "all" %>
+<%= stylesheet_link_tag "style" , :media => "all" %>
+
+<%= javascript_include_tag :application %>
+<%= csrf_meta_tag %>
+</head>
+<body>
+<div id="templatemo_wrapper" background="/assets/Online-Shop-Malta.jpg">
+	
+    <!-- end of templatemo_header -->
+    
+       <div id="templatemo_header" >
+    	<div id="templatemo_special_offers">
+        	
+        </div>
+        
+        
+        <div id="templatemo_new_books">
+        	<ul>
+        
+        </div>
+    </div> 
+    <div id="templatemo_menu">
+    	<ul>
+           <ul>
+      <li> <a href="http://localhost:3000" class="current">Home</a></li>
+<%if session[:user_id].present? %> 
+<li><%= link_to 'Profile', {:controller=>'users', :action => 'update', :id => session[:user_id]} %></li>
+<li><%= link_to 'Logout', {:controller=>'sessions', :action => 'destroy', :id => session[:user_id]} -%></li>
+<% else %>
+<li><a href="/login">Login</a></li>
+<% end %>
+       
+        </ul>   
+    	</ul>
+    </div> 
+    
+
+    <div id="templatemo_content">
+        	</br>
+          </br>
+<h2>
+	<div id="right">
+
+			<div class="items">
+<%= yield %>
+</h2>
+</div>
+</div>
+</div>
+            
+                           
+            	
+            </div>
+         
+
+         
+         <div class="content_section">
+        
+    		       <div class="cleaner"></div>
+            
+        
+         </div>
+         
+    </div> <!-- end of templatemo_content -->
+    
+    <div id="templatemo_footer">
+
+        <ul class="footer_menu">
+            <li><a href="index.html">Home</a></li>
+           
+        </ul>
+    
+      Copyright © 2048 <a href="#">RailsFactory</a> | 
+        <a href="http://www.iwebsitetemplate.com" target="_parent">Lots of fun</a> by <a href="http://www.templatemo.com" target="_parent">Nithesh</a></div> 
+    <!-- end of footer -->
+
+</div> <!-- end of templatemo_wrapper -->
+</body>
+</html>
+
+
+
+
+
+
+
+

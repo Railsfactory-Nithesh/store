@@ -1,0 +1,52 @@
+<h2>Editing user</h2>
+<br/>
+<br/>
+
+<div class="depot_form">
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@user.errors.count, "error" ) %>
+prohibited this user from being saved:</h2>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<fieldset>
+<br/>
+<br/>
+<legend>Enter User Details</legend>
+<h2><div>
+<%= f.label :username %>:
+<%= f.text_field :username, :size => 40 %>
+</div>
+<div>
+<%= f.label :email %>:
+<%= f.text_field :email_id, :size => 40 %>
+</div>
+<div>
+<br/>
+
+<%= f.submit %>
+</div>
+</fieldset>
+<% end %>
+</div>
+<br/>
+<br/>
+
+<%= link_to 'Show', @user %> |
+  <% if (@user.is_admin)  %>
+  <%= link_to 'Back', admin_path %>
+
+        <% else %>
+        <%= link_to 'Back', store_path %>
+
+        <% end %>
+
+
+</h2>

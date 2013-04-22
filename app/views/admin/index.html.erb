@@ -1,0 +1,18 @@
+<h2>Welcome <%= @user_name%></h2><br/>
+
+<%= yield %><br/>
+
+It's <%= Time.now %> now<br/>
+<br/>
+
+<table>
+<tr>
+<td>
+<%= link_to 'Users', users_path, :method => :get %>
+<td> <br/> </td><td><br/>  </td><td> <br/> </td>
+</td>
+<td>
+<%= link_to 'Products',  products_path, :method => :get %>
+</td>
+</tr>
+</table
