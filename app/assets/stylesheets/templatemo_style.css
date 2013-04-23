@@ -9,7 +9,7 @@ body {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 12px;
 	color: #000000;
-	background: #AF4929;
+	background: #6FBCCA;
 }
 		
 a:link, a:visited { color: #003366; text-decoration: none; font-weight: bold; } 
@@ -104,15 +104,16 @@ img { margin: 0px; padding: 0px; border: none; }
 /* menu */
 
 #templatemo_menu {
-	width: 980px;
-	height: 80px;
+	width: 800px;
+	height: 35px;
 	margin: 0 auto;
-	background: url(images/templatemo_menu.jpg) no-repeat;
+	background: green;
+	float: left
 }
 
 #templatemo_menu ul {
 	margin: 0;
-	padding: 40px 0 0 20px;
+	padding: 5px 0 0 20px;
 	list-style: none;
 }
 
@@ -291,8 +292,9 @@ img { margin: 0px; padding: 0px; border: none; }
 	height: 285px;
 	padding: 0;
 	margin: 0;
-	background: url(assets/Online-Shop-Malta.jpg) no-repeat;
-}
+	background: url(/assets/onlinestoresBRcolor.jpg) no-repeat;
+	background-size: 800px 280px;
+} 
 
 #templatemo_header a,a:hover {
 	color: #ffffff;
