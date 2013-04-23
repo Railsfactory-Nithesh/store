@@ -15,6 +15,8 @@ Store::Application.routes.draw do
    post :reset_password  #a url for the function that sends the response email
  end
  end
+ 
+    #~ match '/auth/:provider/callback' => 'store#index'
     match '/logout'=>'sessions#destroy',:as=>'logout'
     match '/auth/:provider/callback' => 'authentications#create'
 

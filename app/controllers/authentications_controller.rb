@@ -39,12 +39,37 @@ class AuthenticationsController < ApplicationController
 
   # POST /authentications
   # POST /authentications.json
-  def create
-  auth = request.env["omniauth.auth"] 
-  User.find(8).authentications.create(:provider => auth['provider'], :uid => auth['uid'])
-  flash[:notice] = "Authentication successful."
-  redirect_to authentications_url
+def create
+  auth = request.env["omniauth.auth"]
+ puts "cccccccccccccccccccccc"
+  # Try to find authentication first
+  authentication = Authentication.find_by_provider_and_uid(auth['provider'], auth['uid'])
+ 
+  if authentication
+    user = authentication.user
+    session[:user_id] = user.id
+    puts "++++++++++++++++++++++++++++++++++"
+    # Authentication found, sign the user in.
+    flash[:notice] = "Signed in successfully."
+    #~ sign_in_and_redirect(:user, authentication.user)
+    
+     redirect_to store_url
+  else
+    puts "_________________________________________"
+    # Authentication not found, thus a new user.
+    user = User.new
+    user.apply_omniauth(auth)
+    if user.save(:validate => false)
+      user = authentication.user
+    session[:user_id] = user.id
+      flash[:notice] = "Account created and signed in successfully."
+       redirect_to store_url
+    else
+      flash[:error] = "Error while creating a user account. Please try again."
+      redirect_to store_url
+    end
   end
+end
 
   # PUT /authentications/1
   # PUT /authentications/1.json

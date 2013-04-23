@@ -17,6 +17,8 @@ gem 'will_paginate' , '>= 3.0.pre'
 gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'oauth2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
