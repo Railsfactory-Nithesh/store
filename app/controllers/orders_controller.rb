@@ -49,11 +49,14 @@ end
   def create
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
+ 	@cart = Cart.find(session[:cart_id])
+	@total_amount = @cart.total_price
+	session[:cart_total] = @total_amount.to_f 
     respond_to do |format|
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      format.html { redirect_to(store_url, :notice =>
+      format.html { redirect_to(paymentspayment_url, :notice =>
       'Thank you for your order.' ) }
       format.xml { render :xml => @order, :status => :created,
       :location => @order }
