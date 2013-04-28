@@ -1,0 +1,13 @@
+default:
+  api_login_id: 7n5P6gZkP9
+  api_transaction_key: 369f9F8bf8nK4B8Q
+  merchant_hash_value: 7n5P6gZkP9
+
+development: 
+test: 
+production: 
+  api_login_id: 7n5P6gZkP9
+  api_transaction_key: 369f9F8bf8nK4B8Q
+  merchant_hash_value: 7n5P6gZkP9
+
+

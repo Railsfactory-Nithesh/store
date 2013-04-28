@@ -1,3 +1,17 @@
+<script type=text/javascript>
+function validate(){
+var remember = document.getElementById('remember');
+  if (remember.checked){
+  $("#order_name").val($("#order_username").text());
+  $("#order_email_id").val($("#order_email").text());
+  }else{
+  $("#order_name").val("");
+  $("#order_email_id").val("");
+}
+}
+</script>
+
+
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -10,10 +24,19 @@
       </ul>
     </div>
   <% end %>
+  
+</br>
+<input  id ="remember" name="existing_value" type="checkbox" onclick="validate()" >Use the registration details <br/></br>
 <div>
 <%= f.label :name, "Name:" %>
 <%= f.text_field :name, :size => 40 %>
 </div>
+
+<div>
+<%= f.label :name, "E-Mail ID:" %>
+<%= f.text_field :email_id, :size => 40 %>
+</div>
+
 <div>
 <%= f.label :address, "Address:" %>
 <%= f.text_area :address, :rows => 3, :cols => 40 %>
@@ -23,5 +46,11 @@
 <%= f.label :pay_type, "Pay with:" %>
 <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => "Select a payment method" %>
 </div><br/>
+
 <%= f.submit "Place Order" %>
 <% end %>
+<p id="order_email"  style="display: none;"><%= @user.email_id%></p>
+<p id="order_username"  style="display: none;"><%= @user.username%></p>
+
+
+
