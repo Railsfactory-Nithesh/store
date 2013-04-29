@@ -1,11 +1,13 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :title
+  attr_accessible :description, :price, :title, :product_type, :image_url, :category_id
   validates :title, :description, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
   validates :title, :uniqueness => true
   default_scope :order => 'title'
 has_many :line_items
+belongs_to :category
 before_destroy :ensure_not_referenced_by_any_line_item
+
  # after_create :welcome_mail_for_product
 
  def welcome_mail_for_product()

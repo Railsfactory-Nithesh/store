@@ -30,6 +30,10 @@ prohibited this product from being saved:</h2>
 <%= f.label :price %><br />
 <%= f.text_field :price %>
 </div>
+<div>
+<%= f.label :product_type, "Product type:" %>
+<%= f.select :category_id, options_for_select(@category.collect {|a| [a.name, a.id]}), :prompt => "Select a product type" %>
+</div>
 <div class="actions">
 <%= f.submit %>
 </div>

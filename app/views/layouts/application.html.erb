@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Online Store</title>
+<title>Online Store<link rel="icon" type="image/png" href="http://example.com/image.png"></title>
 <%= stylesheet_link_tag "scaffold" %>
 <%= stylesheet_link_tag "templatemo_style" , :media => "all" %>
 <%= stylesheet_link_tag "style" , :media => "all" %>
@@ -32,7 +32,7 @@
     <div id="templatemo_menu">
     	<ul>
            <ul>
-      <li> <a href="http://localhost:3000" class="current">Home</a></li>
+      <li> <a href="http://example.loc" class="current">Home</a></li>
 <%if session[:user_id].present? %> 
 <li><%= link_to 'Profile', {:controller=>'users', :action => 'update', :id => session[:user_id]} %></li>
 <li><%= link_to 'Logout', {:controller=>'sessions', :action => 'destroy', :id => session[:user_id]} -%></li>
@@ -53,7 +53,24 @@
 		<div id="sidebar1" >
 <h2>
 Product Types
-</h2>
+</h2><br/>
+</br>
+<%= link_to 'Sports',  category_products_path(:id => "1") %><br/>
+
+<br/>
+<%= link_to 'Computer', category_products_path(:id => "2")  %><br/></br>
+<%= link_to 'Mobile',  category_products_path(:id => "3") %><br/><br/>
+
+
+<%= link_to 'Laptop',  category_products_path(:id => "4") %><br/>
+
+</br>
+<%= link_to 'Electronic Appliance',  category_products_path(:id => "6") %><br/>
+
+</br>
+<%= link_to 'Watch',  category_products_path(:id => "5") %></br>
+
+<br/>
 </div>		
 	<div id="right">
 

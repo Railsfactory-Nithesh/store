@@ -1,9 +1,8 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+
 
 <%if session[:user_id].present? %> <br/><br/>
-<h2> Hi <%= @user_name%> you are now logged in </h2>
+
+<h2><% if flash[:notice] %> <%= flash[:notice]%><% end %> </h2>
 <% end %>
 <br/>
 <br/>
@@ -26,6 +25,7 @@
 
 
 </div>
+
 <% end %>
 
 

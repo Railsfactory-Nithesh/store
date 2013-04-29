@@ -17,7 +17,6 @@ session[:is_admin] = user.is_admin
       end
         if user.is_admin
         redirect_to admin_url
-        flash[:notice]="Hi #{user.username} you are logged on"
         else
         redirect_to store_url
 	flash[:notice]="Hi #{user.username} you are logged on"
