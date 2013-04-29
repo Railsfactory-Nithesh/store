@@ -10,9 +10,16 @@
 <%= javascript_include_tag :application %>
 <%= csrf_meta_tag %>
 </head>
+<div id="sidebar1" >
+<h2>
+Product Types
+</h2>
+</div>
 <body>
 <div id="templatemo_wrapper" background="/assets/Online-Shop-Malta.jpg">
-	
+<div id= "search" align="right">
+<h2>Search: <input name="name" size="15" type="text" /></h2>
+</div>
     <!-- end of templatemo_header -->
     
        <div id="templatemo_header" >
@@ -29,7 +36,7 @@
     <div id="templatemo_menu">
     	<ul>
            <ul>
-      <li> <a href="http://example.loc" class="current">Home</a></li>
+      <li> <a href="http://localhost:3000" class="current">Home</a></li>
 <%if session[:user_id].present? %> 
 <li><%= link_to 'Profile', {:controller=>'users', :action => 'update', :id => session[:user_id]} %></li>
 <li><%= link_to 'Logout', {:controller=>'sessions', :action => 'destroy', :id => session[:user_id]} -%></li>
@@ -46,12 +53,8 @@
         	</br>
           </br>
 <h2>
-<div id="side">
-<div id="cart">
-<%=  @cart.inspect %>
-<%= render(:partial => "store/cart_item" , :object => @cart) %>
-</div>
-</div>
+
+				
 	<div id="right">
 
 			<div class="items">

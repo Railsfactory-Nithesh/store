@@ -7,7 +7,11 @@ html{
 width:100%;
 padding:10px 0 10px 0;
 }
-
+body{
+width:746px;
+margin:auto;
+margin-left:75px;
+}
 #header{
 background-color:#E9E9E9;
 float:left;
