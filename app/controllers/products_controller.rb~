@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   before_filter :check_user, :except => :category
-  before_filter :check_admin
+  before_filter :check_admin, :except => :category
   def index
     @products = Product.all
 

@@ -1,9 +1,9 @@
 
 
-<%if session[:user_id].present? %> <br/><br/>
-
-<h2><% if flash[:notice] %> <%= flash[:notice]%><% end %> </h2>
+<% if notice %>
+<p id="notice"><%= notice %></p>
 <% end %>
+
 <br/>
 <br/>
 <h2>Catalog</h2><br/>
@@ -12,7 +12,7 @@
 
 	<div class="item">
 		<h1><%= product.title %></h1>
-<%= image_tag(product.image_url,  :size => "80x140", :class => 'list_image') %>
+<%= image_tag(product.image_url,  :size => "140x140", :class => 'list_image') %>
 
 
 <h2><br/><%=sanitize product.description %></h2>
@@ -20,10 +20,19 @@
 <span class="price"><h2>$ <%= product.price %></h2></span>
 <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
 					</p>
-				</div>
+				
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="https://example.loc" data-send="false" data-width="450" data-show-faces="false"></div>
 
-
+</div>
 </div>
 
 <% end %>

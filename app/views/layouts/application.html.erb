@@ -2,19 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Online Store<link rel="icon" type="image/png" href="http://example.com/image.png"></title>
+<title>Online Store</title>
 <%= stylesheet_link_tag "scaffold" %>
 <%= stylesheet_link_tag "templatemo_style" , :media => "all" %>
 <%= stylesheet_link_tag "style" , :media => "all" %>
 
 <%= javascript_include_tag :application %>
 <%= csrf_meta_tag %>
+
+<link rel="shortcut icon" type="image/x-icon"  href="http://www.cricbuzz.com/images/cric_ball.ico?1" />
 </head>
 
 <body>
 <div id="templatemo_wrapper" background="/assets/Online-Shop-Malta.jpg">
 <div id= "search" align="right">
-<h2>Search: <input name="name" size="15" type="text" /></h2>
+ <%= form_tag :controller => 'store', :action => 'search', :method => 'post' do %>
+      <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+      <%= submit_tag "Search", :name => nil %> 
+     <%#= link_to_function "Clear", "$('search_field').clear()" %>
+ <% end %> 
+
 </div>
     <!-- end of templatemo_header -->
     

@@ -5,7 +5,7 @@ Store::Application.routes.draw do
 
   resources :authentications
 
-
+  post  "store/search"
   get "store/index"
   get 'admin' => 'admin#index'
   controller :sessions do
